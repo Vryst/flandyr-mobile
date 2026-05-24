@@ -20,7 +20,13 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Start ADB
-        run: adb start-server
+        run: |
+          adb start-server
+          sleep 2
+
+      - name: Build APK
+        run: |
+          ./Godot_v4.6.2-stable_linux.x86_64 --headless --export-debug "Flandyr" ./output.apk --path ./prototype/
 
       - name: Export Godot Android APK
         uses: firebelley/godot-export@v5.2.1
