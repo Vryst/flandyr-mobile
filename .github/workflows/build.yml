@@ -10,8 +10,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+
+      - name: Start ADB
+        run: adb start-server
 
       - name: Export Godot Android APK
         uses: firebelley/godot-export@v5.2.1
