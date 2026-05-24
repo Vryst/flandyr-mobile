@@ -56,5 +56,11 @@ jobs:
       
       - name: Build APK
         run: |
-          ls -la
-          ./Godot_v4.6.2-stable_linux.x86_64 --headless --verbose --export-debug "Flandyr" /home/runner/work/output.apk --path ./prototype/
+          mkdir -p /home/runner/work/output
+          ./Godot_v4.6.2-stable_linux.x86_64 --headless --verbose --export-debug "Flandyr" /home/runner/work/output/Flandyr.apk --path ./prototype/
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Flandyr-debug
+          path: /home/runner/work/output/Flandyr.apk
