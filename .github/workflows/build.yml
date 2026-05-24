@@ -44,6 +44,15 @@ jobs:
           mkdir -p ~/.config/godot
           printf '[gd_resource type="EditorSettings" format=3]\n\n[resource]\nexport/android/android_sdk_path = "/usr/local/lib/android/sdk"\nexport/android/debug_keystore = ""\nexport/android/debug_keystore_user = "androiddebugkey"\nexport/android/debug_keystore_pass = "android"\nexport/android/shutdown_adb_on_exit = true\n' > ~/.config/godot/editor_settings-4.tres
 
+      - name: Debug Check
+        run: |
+          echo "=== Editor Settings ==="
+          cat ~/.config/godot/editor_settings-4.tres
+          echo "=== Android SDK ==="
+          ls /usr/local/lib/android/sdk/
+          echo "=== Build Tools ==="
+          ls /usr/local/lib/android/sdk/build-tools/
+
       
       - name: Build APK
         run: |
