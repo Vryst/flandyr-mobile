@@ -26,10 +26,12 @@ jobs:
 
       - name: Download Godot
         run: |
-          wget https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_linux.x86_64.zip
-          unzip Godot_v4.6.2-stable_linux.x86_64.zip
+          wget -O godot.zip "https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_linux.x86_64.zip"
+          unzip godot.zip
+          ls -la
           chmod +x Godot_v4.6.2-stable_linux.x86_64
 
+      
       - name: Download Export Templates
         run: |
           mkdir -p ~/.local/share/godot/export_templates/4.6.2.stable
@@ -39,5 +41,5 @@ jobs:
 
       - name: Build APK
         run: |
-          ./Godot_v        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ls -la
+          ./Godot_v4.6.2-stable_linux.x86_64 --headless --export-debug "Flandyr" /home/runner/work/output.apk --path ./prototype/
