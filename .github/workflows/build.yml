@@ -53,6 +53,10 @@ jobs:
           echo "=== Build Tools ==="
           ls /usr/local/lib/android/sdk/build-tools/
 
+      - name: Check Export Preset
+        run: |
+          ./Godot_v4.6.2-stable_linux.x86_64 --headless --verbose --export-list --path ./prototype/ 2>&1 || true
+
       
       - name: Build APK
         run: |
