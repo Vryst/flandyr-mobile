@@ -24,15 +24,20 @@ jobs:
           adb start-server
           sleep 2
 
+      - name: Download Godot
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_linux.x86_64.zip
+          unzip Godot_v4.6.2-stable_linux.x86_64.zip
+          chmod +x Godot_v4.6.2-stable_linux.x86_64
+
+      - name: Download Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/4.6.2.stable
+          wget https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_export_templates.tpz
+          unzip Godot_v4.6.2-stable_export_templates.tpz
+          mv templates/* ~/.local/share/godot/export_templates/4.6.2.stable/
+
       - name: Build APK
         run: |
-          ./Godot_v4.6.2-stable_linux.x86_64 --headless --export-debug "Flandyr" ./output.apk --path ./prototype/
-
-      - name: Export Godot Android APK
-        uses: firebelley/godot-export@v5.2.1
-        with:
-          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_linux.x86_64.zip
-          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_export_templates.tpz
-          relative_project_path: ./prototype/
-        env:
+          ./Godot_v        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
