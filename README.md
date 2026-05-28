@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Vryst/flandy/main/flandyr-header.svg" alt="FLANDYR MOBILE" width="860"/>
+  <img src="https://raw.githubusercontent.com/Vryst/flandyr-mobile/flandyr-header.svg" alt="FLANDYR MOBILE" width="860"/>
 </p>
 
 <br/>
