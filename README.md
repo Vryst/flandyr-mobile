@@ -23,5 +23,5 @@
 ---
 
 <p align="center">
-  <sub>© 2026 FLANDYR MOBILE · All rights reserved.</sub>
+  <sub>© 2026 VRYST · All rights reserved.</sub>
 </p>
